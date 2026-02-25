@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    pass VARCHAR(20) NOT NULL,
+    role ENUM('Admin', 'User') NOT NULL
+);

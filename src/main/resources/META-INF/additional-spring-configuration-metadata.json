@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "spring.flyway.clean-on-validation-error",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.flyway.clean-on-validation-error'"
+  },
+  {
+    "name": "spring.flyway.repair-on-migrate",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.flyway.repair-on-migrate'"
+  }
+]}
