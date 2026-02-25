@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import edu.icet.ecom.pbay.dto.UserDto;
 import edu.icet.ecom.pbay.exception.NotFoundException;
+import edu.icet.ecom.pbay.exception.UnexpectedException;
 import edu.icet.ecom.pbay.mapper.UserMapper;
 import edu.icet.ecom.pbay.repository.UserRepository;
 import edu.icet.ecom.pbay.service.UserService;
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String createUser(UserDto userDto) {
         boolean b = repository.save(mapper.toEntity(userDto));
-        if (!b) throw new RuntimeException("Something went wrong");
+        if (!b) throw new UnexpectedException("Something went wrong. Please contact technical support");
         return "User created successfully";
     }
 
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
         if (!repository.existsById(id)) throw new NotFoundException("User not found with ID: " + id);
         userDto.setId(id);
         boolean b = repository.update(mapper.toEntity(userDto));
-        if (!b) throw new RuntimeException("Something went wrong");
+        if (!b) throw new UnexpectedException("Something went wrong. Please contact technical support");
         return "User updated successfully";
     }
 
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
     public String deleteUser(Integer id) {
         if (!repository.existsById(id)) throw new NotFoundException("User not found with ID: " + id);
         boolean b = repository.delete(id);
-        if (!b) throw new RuntimeException("Something went wrong");
+        if (!b) throw new UnexpectedException("Something went wrong. Please contact technical support");
         return "User removed successfully";
     }
 
